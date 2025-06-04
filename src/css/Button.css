@@ -1,0 +1,29 @@
+/* Button styles for the guitar shop application */
+.btn {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+
+.btn.is-outline {
+    background-color: transparent;
+    border: 2px solid #31b572; /* Example color */
+    color: #31b572; /* Example color */
+}
+
+.btn.is-outline:hover {
+    background-color: #31b572; /* Example color */
+    color: white;
+}
+
+.btn.is-filled {
+    background-color: #31b572; /* Example color */
+    color: white;
+}
+
+.btn.is-filled:hover {
+    background-color: #28a745; /* Darker shade for hover effect */
+}

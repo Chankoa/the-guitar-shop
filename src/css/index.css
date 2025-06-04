@@ -1,0 +1,35 @@
+/* This file contains global styles for the application */
+
+:root {
+  --color-primary: #ff5722; /* Primary color for the shop */
+  --color-secondary: #ffffff; /* Secondary color for backgrounds */
+  --color-accent: #3f51b5; /* Accent color for buttons and highlights */
+  --font-main: 'Arial', sans-serif; /* Main font for the application */
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-main);
+  background-color: var(--color-secondary);
+  color: #333;
+}
+
+h1, h2, h3 {
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  text-decoration: none;
+  color: var(--color-primary);
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+button {
+  cursor: pointer;
+}

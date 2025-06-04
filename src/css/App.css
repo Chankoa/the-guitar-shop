@@ -1,0 +1,20 @@
+/* VARIABLES */
+:root {
+  /* Colors for The Guitar Shop */
+  --color-1: #ff5722; /* Primary color */
+  --color-2: #ffe0b2; /* Light background color */
+  --color-3: #795548; /* Darker shade for text */
+  --color-4: #ffffff; /* White for backgrounds */
+  --color-5: #000000; /* Black for text */
+}
+
+/* LAYOUT of the APP */
+main {
+  padding: 2rem 1rem;
+  background-color: var(--color-2);
+}
+
+/* General styles for the App */
+.App {
+  text-align: center;
+}
