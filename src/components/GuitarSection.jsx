@@ -1,6 +1,8 @@
 import { useEffect } from 'react';
 import Swiper from 'swiper';
 import { Navigation, Pagination } from 'swiper/modules';
+import { guitarList } from '../datas/guitarList';
+import '../css/GuitarList.css';
 
 function GuitarSection() {
   useEffect(() => {
@@ -28,12 +30,18 @@ function GuitarSection() {
       </header>
       <div className="swiper products-swiper">
         <div className="swiper-wrapper">
-          <div className="swiper-slide">
-            <article className="produit"></article>
-          </div>
-          <div className="swiper-slide">
-            <article className="produit"></article>
-          </div>
+          {guitarList.map(guitar => (
+            <div className="swiper-slide" key={guitar.id}>
+              <article className="produit">
+                <img src={guitar.imageUrl} alt={`Image of ${guitar.name}`} />
+                <header className="guitar-item-header">
+                  <h3>{guitar.name}</h3>
+                  <p>{guitar.category}</p>
+                  <h4>{guitar.price}€</h4>
+                </header>
+              </article>
+            </div>
+          ))}
         </div>
         <div className="swiper-button-next"></div>
         <div className="swiper-button-prev"></div>

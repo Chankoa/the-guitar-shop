@@ -1,5 +1,5 @@
 // filepath: d:\WebWorks\Learn\React\the-guitar-shop\src\components\Button.js
-import '../css/Button.css';
+import './css/Button.css';
 
 // Import useState from React
 import { useState } from 'react';

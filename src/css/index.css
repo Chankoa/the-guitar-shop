@@ -10,97 +10,12 @@
 			0 - RESET et VARIABLES
 ------------------------------------ */
 
+
 /* RESET */
 *, *::before, *::after {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
-}
-
-/* VARIABLES */
-:root {
-
-    /* PALETTE PRINCIPALE */
-    --color-hellfire: #ff3d00;     /* Rouge orangé intense pour éléments principaux */
-    --color-brimstone: #8b0000;    /* Rouge profond pour accents sombres */
-    --color-sulfur: #ffd700;       /* Or/jaune pour accents lumineux */
-    --color-ash: #1a1a1a;          /* Noir profond pour fonds */
-    --color-smoke: #333333;        /* Gris foncé pour texte */
-    --color-ember: #ff8c00;        /* Orange pour accents secondaires */
-    
-    /* VARIATIONS DE GRIS */
-    --color-charcoal: #2c2c2c;     /* Gris très foncé pour éléments d'interface */
-    --color-steel: #666666;        /* Gris moyen pour texte secondaire */
-    --color-fog: #999999;          /* Gris clair pour éléments désactivés */
-    --color-white: #ffffff;        /* Blanc pur */
-    
-    /* FLAMMES GRADIENT */
-    --color-flame-1: var(--color-hellfire);    
-    --color-flame-2: var(--color-ember);       
-    --color-flame-3: #ff6b00;                  
-    --color-flame-4: var(--color-sulfur);      
-    
-    /* GRADIENTS THÉMATIQUES */
-    --gradient-flame: linear-gradient(45deg, var(--color-hellfire), var(--color-ember));
-    --gradient-flame-hover: linear-gradient(45deg, var(--color-brimstone), var(--color-sulfur));
-    --gradient-hell: linear-gradient(to bottom, var(--color-ash), var(--color-brimstone));
-    
-    /* OMBRES THÉMATIQUES */
-    --shadow-hellfire: 0 0 10px rgba(255, 61, 0, 0.3);
-    --shadow-brimstone: 0 0 15px rgba(139, 0, 0, 0.4);
-    
-    /* ALIASES SÉMANTIQUES */
-    --color-primary: var(--color-ash);
-    --color-secondary: var(--color-hellfire);
-    --color-accent: var(--color-sulfur);
-    --color-text: var(--color-smoke);
-    --color-text-light: var(--color-white);
-    --color-background: var(--color-charcoal);
-    
-    /* SPACING */
-    --spacing: 1rem;
-
-    /* Couleurs système */
-    --color-background-light: #f5f5f5;
-    --color-background-white: #fff;
-    --color-border: #ddd;
-    --color-placeholder: #999;
-    --color-error: #ff4444;
-    
-    /* Opacités */
-    --opacity-hover: 0.8;
-    --opacity-disabled: 0.5;
-    
-    /* Ombres */
-    --shadow-color-primary: rgba(255, 77, 0, 0.2);
-    --shadow-color-accent: rgba(212, 175, 55, 0.2);
-    --shadow-color-dark: rgba(0, 0, 0, 0.1);
-    
-    --shadow-xs: 0 1px 2px var(--shadow-color-dark);
-    --shadow-sm: 0 2px 4px var(--shadow-color-dark);
-    --shadow-md: 0 4px 8px var(--shadow-color-primary);
-    --shadow-lg: 0 8px 16px var(--shadow-color-primary);
-    --shadow-xl: 0 12px 24px var(--shadow-color-primary);
-    
-    /* Effets spéciaux */
-    --glow-primary: 0 0 8px var(--color-flame-1);
-    --glow-accent: 0 0 12px var(--color-flame-3);
-    
-    /* Transitions */
-    --transition-fast: 0.2s ease;
-    --transition-base: 0.3s ease;
-    --transition-slow: 0.5s ease;
-    
-    /* Border radius */
-    --radius-sm: 4px;
-    --radius-md: 8px;
-    --radius-lg: 16px;
-
-    /* Breakpoints */
-    --breakpoint-sm: 767px;
-    --breakpoint-md: 768px;
-    --breakpoint-lg: 992px;
-    --container-max-width: 1024px;
 }
 
 /* ----------------------------
@@ -259,7 +174,7 @@ textarea:focus::placeholder {
 }
 
 /* Media queries */
-@media (max-width: 767px) {
+@media (max-width: var(--breakpoint-sm)) {
     .contact-form {
         width: 100%;
         padding: 1.5rem;
@@ -301,10 +216,6 @@ nav ul {
 nav a {
     color: white;
     text-decoration: none;
-}
-
-main {
-    padding: 1rem;
 }
 
 
@@ -538,190 +449,15 @@ button:active, .btn:active {
     margin-right: auto;
 }
 
-/* Navigation OFF CANVAS */
-.nav-toggle {
-    display: none;
-    background: none;
-    border: none;
-    padding: 0.5rem;
-    cursor: pointer;
-    z-index: 1000;
-}
-
-.hamburger {
-    display: block;
-    position: relative;
-    width: 24px;
-    height: 2px;
-    background: var(--color-accent);
-    transition: all 0.3s ease-in-out;
-}
-
-.hamburger::before,
-.hamburger::after {
-    content: '';
-    position: absolute;
-    width: 24px;
-    height: 2px;
-    background: var(--color-accent);
-    transition: all 0.3s ease-in-out;
-}
-
-.hamburger::before {
-    transform: translateY(-8px);
-}
-
-.hamburger::after {
-    transform: translateY(8px);
-}
-
-/* Overlay du menu */
-.nav-overlay {
-    display: none;
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: var(--color-primary);
-    opacity: 0;
-    transition: opacity 0.3s ease;
-    z-index: 998;
-}
-
-/* Wrapper du menu */
-.nav-wrapper {
-    position: relative;
-}
-
-/* Media queries pour le menu responsive */
-@media (max-width: 768px) {
-    .nav-toggle {
-        display: block;
-    }
-
-    .nav-wrapper {
-        position: fixed;
-        top: 0;
-        right: 0;
-        height: 100vh;
-        width: 100%;
-        background: var(--color-primary);
-        transform: translateX(100%);
-        transition: transform 0.3s ease;
-        z-index: 999;
-    }
-
-    .main-menu {
-        flex-direction: column;
-        padding: 5rem 2rem;
-        gap: 2rem;
-    }
-
-    /* Classes pour l'état actif */
-    body.nav-open {
-        overflow: hidden;
-    }
-
-    body.nav-open .nav-overlay {
-        display: block;
-        opacity: 1;
-    }
-
-    body.nav-open .nav-wrapper {
-        transform: translateX(0);
-    }
-
-    body.nav-open .hamburger {
-        background: transparent;
-    }
-
-    body.nav-open .hamburger::before {
-        transform: rotate(45deg);
-    }
-
-    body.nav-open .hamburger::after {
-        transform: rotate(-45deg);
-    }
-}
-
-/* Carousel SWIPER */
-
-/* Swiper styles */
-.products-swiper {
-    width: 100%;
-    padding: 2rem 0;
-}
-
-.swiper-slide {
-    display: flex;
-    justify-content: center;
-}
-
-/* Navigation buttons */
-.swiper-button-next,
-.swiper-button-prev {
-    color: var(--color-flame-1);
-    transition: color 0.3s ease;
-}
-
-.swiper-button-next:hover,
-.swiper-button-prev:hover {
-    color: var(--color-flame-3);
-}
-
-/* Swiper pagination */
-.swiper-pagination-bullet {
-    background: var(--color-flame-1);
-    opacity: 0.5;
-}
-
-.swiper-pagination-bullet-active {
-    background: var(--gradient-flame);
-    opacity: 1;
-}
-
-/* Pagination */
-.swiper-pagination-bullet {
-    background: var(--color-primary);
-    opacity: 0.5;
-}
-
-.swiper-pagination-bullet-active {
-    background: var(--color-accent);
-    opacity: 1;
-}
-
-@media (min-width: 768px) {
-    .products-swiper {
-        display: none;
-    }
-    
-    .grid-produits {
-        display: grid;
-    }
-}
-
-@media (max-width: 767px) {
-    .grid-produits {
-        display: none;
-    }
-    
-    .products-swiper {
-        display: block;
-    }
-}
 
 /* EFFETS */
 
 /* Titres de sections avec soulignement FLAMME */
-.section-header h2,
 .underline-flame {
     position: relative;
     display: inline-block;
 }
 
-.section-header h2::after,
 .underline-flame::after {
     content: '';
     position: absolute;
@@ -782,7 +518,7 @@ button:active, .btn:active {
 ------------------------------ */
 
 /* Smartphones : écrans SMALL (jusqu'à 767px) */
-@media (max-width: var(--breakpoint-sm)) {
+@media (max-width: 767px) {
     /*nav {
         flex-direction: column;
         gap: var(--spacing);
@@ -790,7 +526,7 @@ button:active, .btn:active {
 }
 
 /* Tablettes : écrans MEDIUM (à partir de 768px) */
-@media (min-width: var(--breakpoint-md)) {
+@media (min-width: 768px) {
 
     .grid-produits {
         grid-template-columns: repeat(2, 1fr);
@@ -801,7 +537,7 @@ button:active, .btn:active {
 
 
 /* Ecrans LARGE (à partir de 992px) */
-@media (min-width: var(--breakpoint-lg)) {
+@media (min-width: 992px) {
 
    .container {
         max-width: var(--container-max-width);

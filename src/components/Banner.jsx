@@ -1,4 +1,5 @@
 // filepath: d:\WebWorks\Learn\React\the-guitar-shop\src\components\Banner.js
+
 import '../css/Banner.css';
 
 // Variables

@@ -7,7 +7,7 @@ import AmplifierSection from './AmplifierSection';
 import EffectsSection from './EffectsSection';
 import ContactSection from './ContactSection';
 import Footer from './Footer';
-import '../css/App.css';
+//import '../css/App.css';
 
 function App() {
   return (
